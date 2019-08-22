@@ -6,19 +6,15 @@ class WeatherApi {
     }
 
     //Change the weather location
-    changeLocation(city,country){
+    changeLocation(city, country) {
         this.city = city;
         this.country = country;
     }
 
-    async getWeather(){
+    async getWeather() {
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const responseId = await fetch(`${proxyUrl}api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${this.apiKey}`);
         const datasId = await responseId.json();
         return datasId;
-
     }
-
-    
-    
 }
